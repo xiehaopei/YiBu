@@ -4,5 +4,11 @@ const history = createWebHistory();
 
 const router = createRouter({
   history: history,
-  routes: [],
+  routes: [
+    { path: "/", redirect: "/entry" },
+    { path: "/entry", component: () => import("./views/Entry.vue") },
+    { path: "/home", component: () => import("./views/Home.vue") },
+  ],
 });
+
+export default router;
