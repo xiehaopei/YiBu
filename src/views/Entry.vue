@@ -2,7 +2,7 @@
   <div class="container">
     <div class="banner">
       <h1 class="blog-name">YiBu Blog</h1>
-      <h3>0000</h3>
+      <h3>智者向内寻求力量</h3>
       <p class="enter-button">
         <router-link to="/home">enter</router-link>
       </p>
@@ -33,7 +33,12 @@ export default {
     align-items: center;
     width: 50%;
     height: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
     -webkit-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
 
     .blog-name {
       margin-bottom: 10px;

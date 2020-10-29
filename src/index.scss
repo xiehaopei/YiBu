@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-body{
+body {
   line-height: 1.5;
   color: #1d2c40;
   font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica,
@@ -13,4 +13,17 @@ body{
     "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti",
     SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
   font-size: 16px;
+}
+
+div {
+  box-sizing: boreder-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
 }
