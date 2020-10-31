@@ -3,9 +3,10 @@
 </template>
 
 <script>
+const width = document.documentElement.clientWidth;
+const height = document.documentElement.clientHeight;
 document.documentElement.style.fontSize =
-  document.documentElement.clientWidth / 76.8 + 'px';
-  console.log(document.documentElement.style.fontSize)
+  (width > height ? height : width) / 76.8 + 'px';
 export default {
   name: 'App',
   components: {},
