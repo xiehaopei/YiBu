@@ -1,28 +1,33 @@
 <template>
-  <div class="entry">
-    <div class="cover"></div>
-    <div class="container">
-      <div class="banner">
-        <div class="blog-name">YiBu</div>
-        <h3 class="quote">智者向内寻求力量</h3>
-        <p class="enter-button">
-          <router-link to="/home">enter</router-link>
-        </p>
-      </div>
+<div class="entry">
+  <div class="cover"></div>
+  <div class="container">
+    <div class="banner">
+      <div class="blog-name">YiBu</div>
+      <h3 class="quote">智者向内寻求力量</h3>
+      <p class="enter-button">
+        <router-link to="/home">enter</router-link>
+      </p>
     </div>
   </div>
+</div>
 </template>
 
-<script >
-import { onMounted } from 'vue';
+<script>
+import {
+  onMounted
+} from 'vue';
 export default {
   setup() {
     onMounted(() => {
       const banner = document.querySelector('.banner');
       const cover = document.querySelector('.cover');
-      banner.onmouseover =  () => {
+      banner.onmouseover = () => {
         cover.style.filter = 'none';
       };
+      banner.onmouseout = () => {
+        cover.style.filter = 'blur(4px)';
+      }
       console.log(banner, cover);
     });
   },
@@ -40,6 +45,7 @@ body {
   height: 100%;
   width: calc(100vw + 18px);
   overflow: auto;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -49,6 +55,7 @@ body {
   width: 100vw;
   overflow: hidden;
 }
+
 .cover {
   width: 5000px;
   height: 5000px;
@@ -56,8 +63,10 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  transition: filter .5s;
   filter: blur(4px);
 }
+
 .container {
   .banner {
     display: flex;
@@ -67,8 +76,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
-    height: 70%;
+    width: 50%;
+    height: 50%;
     transform: translateX(-50%) translateY(-50%);
 
     -webkit-transform: translateX(-50%) translateY(-50%);
@@ -89,7 +98,7 @@ body {
     }
 
     .enter-button {
-      > a {
+      >a {
         display: block;
         margin: 0 0.8rem;
         padding: 0.5rem 3rem;
@@ -98,6 +107,7 @@ body {
         text-decoration: none;
         font-size: 4rem;
         color: #fff;
+
         &:hover {
           cursor: pointer;
         }
