@@ -101,7 +101,7 @@ body {
     }
 
     .isFont {
-      -webkit-text-stroke: 1px #fff;
+      -webkit-text-stroke: 1px #000;
       -webkit-text-fill-color: transparent;
     }
 
