@@ -1,35 +1,38 @@
 <template>
-<div class="entry">
-  <div class="cover"></div>
-  <div class="container">
-    <div class="banner">
-      <div class="blog-name">YiBu</div>
-      <h3 class="quote">智者向内寻求力量</h3>
-      <p class="enter-button">
-        <router-link to="/home">enter</router-link>
-      </p>
+  <div class="entry">
+    <div class="cover"></div>
+    <div class="container">
+      <div class="banner">
+        <div class="blog-name" :class="{isFont:isFont}">YiBu</div>
+        <h3 class="quote" :class="{isFont:isFont}">智者向内寻求力量</h3>
+        <p class="enter-button">
+          <router-link to="/home">enter</router-link>
+        </p>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import {
-  onMounted
-} from 'vue';
+import { onMounted, ref } from 'vue';
 export default {
   setup() {
+    const isFont = ref(false);
     onMounted(() => {
       const banner = document.querySelector('.banner');
       const cover = document.querySelector('.cover');
       banner.onmouseover = () => {
         cover.style.filter = 'none';
+        isFont.value = true;
       };
       banner.onmouseout = () => {
         cover.style.filter = 'blur(4px)';
-      }
-      console.log(banner, cover);
+        isFont.value = false;
+      };
     });
+    return {
+      isFont,
+    };
   },
 };
 </script>
@@ -63,7 +66,7 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  transition: filter .5s;
+  transition: all 0.5s;
   filter: blur(4px);
 }
 
@@ -88,7 +91,7 @@ body {
     .blog-name {
       margin-bottom: 1rem;
       font-size: 12rem;
-      color: #fff;
+      -webkit-text-fill-color: #fff;
     }
 
     .quote {
@@ -97,8 +100,13 @@ body {
       color: #fff;
     }
 
+    .isFont {
+      -webkit-text-stroke: 1px #fff;
+      -webkit-text-fill-color: transparent;
+    }
+
     .enter-button {
-      >a {
+      > a {
         display: block;
         margin: 0 0.8rem;
         padding: 0.5rem 3rem;
